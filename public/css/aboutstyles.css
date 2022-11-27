@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+  }
+.text-det{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+.text-det1{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+
+}
+.text-det3{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    margin: 0;
+}
+#centered-text{
+    text-align: center;
+}
+.bg-dark{
+    background-color: #111;
+    margin: 0;
+    padding: 0;
+}
+.nav-link, .navbar-brand{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+}
+#pic-div{
+    height: 100%;
+}
+.mypic1{
+    width: 90%;
+    height: 100%;
+    border-radius: 150px;
+    max-height: 500px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    margin: auto;
+    padding-left: 40px;
+}
+.container{
+    background-color: #111;
+    margin: 0%;
+    max-width: 100%;
+}
+.wrap{
+    background-color: #111;
+    overflow:hidden;
+}
+.wrap div {
+    min-height: 200px;
+    padding: 10px;
+ }
+#padd-div{
+    padding-top: 30px;
+}
+#div1{
+    float:left; 
+    width:50%;
+}
+#div2{
+    overflow:hidden;
+
+}
+.navbar-toggler{
+    background-color: aliceblue;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow .15s
+}
+@media screen and (max-width: 400px) {
+    #div1    { 
+     float: none;
+     width:auto;   
+   }
+ }
+.text-div{
+    background-color: #111;
+}
+.text-det2{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    margin: 0;
+}
+.fix1{
+    line-height: 0;
+}
+.great-div{
+  height: 10px;
+  background-color: white;
+  animation-name: change;
+  animation-duration: 2s;
+  animation: change 3s infinite;
+  margin: auto;
+  width: 300px;
+  border-radius: 60px;
+}
+@keyframes change {
+    from {background-color: white;}
+    to {background-color: lightblue;}
+  }
+.cont{
+    background-color: #111;
+    padding-bottom: 15px;
+}
+#navbar{
+    background-color: #25262c !important;
+    position: fixed;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+}
+.polaroid {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    text-align: center;
+    background-color: #25262c;
+    height: 600px;
+    box-shadow: 8px 5px 10px aliceblue;
+    transition: transform .2s ease;
+}
+
+.polaroid:hover {
+    transform: scale(1.1); 
+  }
+
+.container{
+    background-color: #25262c;
+}
+.col-sm{
+    background-color: #111;
+}
+.pal-img{
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+}
+.border-div{
+    background-color: #111;
+    border: 3px solid aliceblue;
+}
+#pal-img1{
+    max-height: 350px;
+    transition: transform .2s ease;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    max-width: 480px;
+}
+#pal-img1:hover {
+    transform: scale(1.1); 
+  }
+.carousel{
+    border-radius: 30px;
+    border: 3px solid lightyellow; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 100%;
+    box-shadow:  0.8em 0 .8em #313634;
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.d-block{
+    max-width: 100%;
+    width: 100%;
+    height: 450px;
+    max-height: 450px;
+    border-radius: 30px;
+}
+.colr-div{
+    background-color: white;
+    color: black;
+    opacity: 0.9;
+}
+.text-det4{
+    color: #111;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    margin: 0;
+}
+.carousel-control-prev-icon,.visually-hidden, .carousel-control-next-icon{
+    background-color: #111;
+}
+.center-a{
+    color: aliceblue;
+}

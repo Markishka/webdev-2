@@ -1,6 +1,12 @@
 //required for front end communication between client and server
+const {username, room} = Qs.parse(location.search, {
+ignoreQueryPrefix: true
+});
 
 const socket = io();
+
+socket.emit('join', {username, room});
+
 
 const inboxPeople = document.getElementById("inbox__people");
 const inputField = document.querySelector(".message_form__input");
@@ -14,7 +20,7 @@ const scrollmess = document.querySelector('.messages__history')
 const scrollmsg = document.getElementById('chatbox1');
 
 let userName = "";
-const yourName = prompt('What is your name?')
+const yourName = username
 let id;
 const newUserConnected = function (data) {
     
@@ -58,7 +64,7 @@ newUserConnected();
 
 //when a new user event is detected
 socket.on("new user", function (data) {
-  alert("A new user joined the chat")
+  alert(`A new user joined the chat`)
   data.map(function (user) {
           return addToUsersBox(user);
       });

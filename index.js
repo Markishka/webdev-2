@@ -1,6 +1,8 @@
 const express = require("express");
 const socket = require("socket.io");
 
+const {clientJoin, getUser } = require('./public/js/info.js')
+
 // App setup
 const PORT = 3000;
 const app = express();
@@ -20,29 +22,32 @@ const io = socket(server);
 const activeUsers = new Set();
 
 io.on("connection", function (socket) {
-  console.log("Made socket connection");
-  socket.emit('message', 'A user connected to the chat');
-  socket.broadcast.emit('message', 'The new user joined the chat');
-
-  socket.on("new user", function (data) {
+  socket.on('join', ({username, room}) => {
+    const client = clientJoin(socket.id, username, room);
+      socket.join(client.room);
+    socket.emit('message', `${username} connected to the chat`);
+  socket.broadcast.to(client.room).emit('message', `${username} joined the chat`);
+    socket.on("new user", function (data) {
     socket.userId = data;
     activeUsers.add(data);
     //... is the the spread operator, adds to the set while retaining what was in there already
     io.emit("new user", [...activeUsers]);
   });
-
-  socket.on("disconnect", function () {
+      socket.on("chat message", function (data) {
+      io.to(client.room).emit("chat message", data);
+  });
+    socket.on("typing", (name) => {
+      socket.broadcast.to(client.room).emit("typing", name);
+    });
+    socket.on("disconnect", function () {
       activeUsers.delete(socket.userId);
-      io.emit('message', 'A user left the chat');
+      io.to(client.room).emit('message', `A ${username} left the chat`);
       console.log("User disconnected");
       io.emit("user disconnected", socket.userId);
     });
 
-    socket.on("chat message", function (data) {
-      io.emit("chat message", data);
   });
-    socket.on("typing", (name) => {
-      socket.broadcast.emit("typing", name);
-    });
+
+
 
 });

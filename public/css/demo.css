@@ -5,14 +5,18 @@
 body{
     background-color: #111 !important;
 }
+.col-9{
+  overflow: hidden;
+}
 .general-div{
-    background-image: linear-gradient(to left, rgb(117, 121, 122), rgb(174, 175, 171));
-    height: 500px;
+    /*background-image: linear-gradient(to left, rgb(117, 121, 122), rgb(174, 175, 171));*/
+    background-color: #efecec;
     width: 900px;
     margin: auto;
     max-width: 100%;
     margin-top: 30px;
     border-radius: 30px;
+    margin-bottom: 10px;
 }
 .welcome-div{
     background-image: linear-gradient(to left, rgb(87, 181, 218), rgb(210, 221, 51));
@@ -21,21 +25,42 @@ body{
 .welc-txt{
     margin-bottom: 0;
     text-align: center;
-    background-image: linear-gradient(to left, rgb(15, 120, 161), rgb(89, 19, 180));
+    background-color: #5b1096;
+}
+nav{
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+footer{
+      --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
 }
 .welc-txt1{
     margin-bottom: 0;
     text-align: center;
-    background-image: linear-gradient(to left, rgb(145, 27, 27), rgb(180, 124, 19));
+    background-color: #ff5757;
     border-radius: 30px;
 }
 .col-3{
-    background-image: linear-gradient(to left, rgb(15, 120, 161), rgb(89, 19, 180));
+    /*background-image: linear-gradient(to left, rgb(15, 120, 161), rgb(89, 19, 180));*/
+    background-color: #5b1096;
     max-height: 100%;
-    width: 150px;
+    width: 25% !important;
+    float: left;
     margin-left: 10px;
     border-radius: 30px;
     max-width: 100%;
+    margin-bottom: 10px;
+    height: 100%;
+}
+@media screen and (max-width: 1100px) {
+    .col-3 {
+        width: 60% !important;
+        float: none;
+        max-width: none;
+        margin: auto;
+        margin-bottom: 10px;
+    }
 }
 #msgbox{
   background-color: aliceblue;
@@ -47,9 +72,19 @@ body{
     margin-top: 0;
     padding-top: 10px;
     border-radius: 30px;
+    margin-bottom: 10px;
 }   
 .fallback{
   position: relative;
+}
+.navbar-toggler {
+    background-color: aliceblue !important;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow .15s;
 }
 form {
     padding: 15px 25px;
@@ -62,7 +97,7 @@ form {
     margin: 0 auto;
     margin-top: 5px;
     padding: 10px;
-    background-image: linear-gradient(to left, rgb(15, 120, 161), rgb(89, 19, 180));
+    background-color: #5b1096;
     height: 300px;
     width: 530px;
     border-right: 1px solid #a7a7a7;
@@ -94,18 +129,21 @@ form {
   }
   .message_form__button{
     color: #fff;
-    background-image: linear-gradient(to left, rgb(145, 27, 27), rgb(180, 124, 19));
+    /*background-image: linear-gradient(to left, rgb(145, 27, 27), rgb(180, 124, 19));*/
+    background-color: #ff5757;
     border-color: grey;
     display: inline-block;
     width:120px;
     height: 40px;
+  }
+  .inbox__messages, #typesOrnot{
+    background-color: #5b1096 !important;
   }
   #typesOrnot {
   width: 530px;
   max-width: 100%;
   height: 30px;
   max-width: 100%;
-  background-image: linear-gradient(to left, rgb(15, 120, 161), rgb(89, 19, 180));
   border-right: 1px solid #a7a7a7;
   border-bottom: 4px solid #a7a7a7;
   border-left: 1px solid #a7a7a7;
@@ -131,9 +169,9 @@ form {
 	font-weight: bold;
   word-wrap: break-word;
 }
-
-::-webkit-scrollbar {
-  width: 10px;
+.nav-link, .navbar-brand {
+    color: aliceblue !important;
+    font-family: "Sofia", sans-serif;
 }
 .incoming__message{
   background-image: linear-gradient(to left, rgb(56, 63, 66), rgb(31, 31, 30));
@@ -159,7 +197,23 @@ form {
   margin-bottom: 3px;
   word-wrap: break-word;
 }
-
+.great-div{
+  height: 10px;
+  background-color: white;
+  animation-name: change;
+  animation-duration: 2s;
+  animation: change 2s infinite;
+  margin: auto;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  width: 300px;
+  border-radius: 60px;
+}
+@keyframes change {
+    animation: ease;
+    from {background-color: white;}
+    to {background-color: lightblue;}
+  }
 .inbox__people{
   overflow:auto;
 }
@@ -178,4 +232,10 @@ form {
 }
 .typing-txt{
   font-weight: 500;
+}
+.text-det3 {
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    margin: 0;
 }
