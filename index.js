@@ -26,7 +26,7 @@ io.on("connection", function (socket) {
     const client = clientJoin(socket.id, username, room);
       socket.join(client.room);
     socket.emit('message', `${username} connected to the chat`);
-  socket.broadcast.to(client.room).emit('message', `${username} joined the chat`);
+    socket.broadcast.to(client.room).emit('message', `${username} joined the chat`);
     socket.on("new user", function (data) {
     socket.userId = data;
     activeUsers.add(data);
@@ -45,9 +45,13 @@ io.on("connection", function (socket) {
       console.log("User disconnected");
       io.emit("user disconnected", socket.userId);
     });
-
+    //sending alert message to the existing users
+    socket.on("NewUserMessage", function(data){
+      socket.to(client.room).emit("NewUserMessage", data);
+      socket.join(client.room);
+    });
   });
-
+  
 
 
 });

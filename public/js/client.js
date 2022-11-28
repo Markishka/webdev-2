@@ -1,21 +1,20 @@
-//required for front end communication between client and server
+//adding users to the rooms and dividing them
 const {username, room} = Qs.parse(location.search, {
 ignoreQueryPrefix: true
 });
-
+//required for front end communication between client and server
 const socket = io();
-
+//emitting when the user joined specific room
 socket.emit('join', {username, room});
 
-
+//all the variables that are used in the code to make proper output
 const inboxPeople = document.getElementById("inbox__people");
 const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 let typesOrnot = document.getElementById("typesOrnot")
 let message1 = document.getElementById('message1');
-const scrollmess = document.querySelector('.messages__history')
-
+const scrollmess = document.querySelector('.messages__history');
 
 const scrollmsg = document.getElementById('chatbox1');
 
@@ -32,6 +31,7 @@ const newUserConnected = function (data) {
     
     //emit an event with the user id
     socket.emit("new user", userName);
+    socket.emit("ExistUser", userName);
     //call
     addToUsersBox(userName);
 };
@@ -64,12 +64,11 @@ newUserConnected();
 
 //when a new user event is detected
 socket.on("new user", function (data) {
-  alert(`A new user joined the chat`)
   data.map(function (user) {
           return addToUsersBox(user);
       });
 });
-
+// outputing the new user joined the chat message
 socket.on('message', message =>{
     outputMessage(message);
     });
@@ -78,25 +77,25 @@ socket.on('message', message =>{
 socket.on("user disconnected", function (userName) {
   document.querySelector(`.${userName}-userlist`).remove();
 });
-
+//outputing user is typing message when user is clicking on the keyboard
 message1.addEventListener('keypress', () => {
   socket.emit("typing", userName);
 });
 
 
-
+//outputing user is typing message
 socket.on("typing", (name) => {
   let typingMessage = typesOrnot.innerHTML=`<p class="typing-txt"><em>${name}</em> is typing...</p>`;
   typesOrnot.innerHTML = typingMessage;
   setTimeout(notTyping, 4000);
 });
-
+//outputing user is typing message
 function notTyping() {
 const noType = "";
 typesOrnot.innerHTML = noType;
 };
 
-
+// outputing the new user joined the chat message
 function outputMessage(message){
       const div = document.createElement('div');
       div.classList.add('message');
@@ -106,17 +105,17 @@ function outputMessage(message){
       </div>`;
       scrollmsg.appendChild(div);
 };
-
+//adding the new messages
 const addNewMessage = ({ user, message }) => {
   const time = new Date();
   const formattedTime = time.toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
-
+  //format of incoming messages
   const receivedMsg = `
   <div class="incoming__message">
     <p class="msg-time"><em>${formattedTime}</em></p>
       <p class="msg-txt"><b>${user}</b>: ${message}</p>
   </div>`;
-
+//format of outcoming messages
   const myMsg = `
   <div class="outgoing__message">
   <p class="msg-time"><em>${formattedTime}</em></p>
@@ -141,4 +140,9 @@ messageForm.addEventListener("submit", (e) => {
 socket.on("chat message", function (data) {
   addNewMessage({ user: data.nick, message: data.message });
   scrollmess.scrollTop = scrollmess.scrollHeight;
+});
+//sending alert message to the existing users
+socket.on("NewUserMessage", function(data){
+  const Name1 = data;
+  alert(`${Name1} joined the chat room`);
 });

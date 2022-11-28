@@ -19,13 +19,13 @@ body{
     margin-bottom: 10px;
 }
 .welcome-div{
-    background-image: linear-gradient(to left, rgb(87, 181, 218), rgb(210, 221, 51));
+    background-color: #5b1096;
     margin-bottom: 15px;
+    position: relative;
 }
 .welc-txt{
     margin-bottom: 0;
     text-align: center;
-    background-color: #5b1096;
 }
 nav{
     --bs-bg-opacity: 1;
@@ -85,6 +85,15 @@ footer{
     border: 1px solid transparent;
     border-radius: 0.25rem;
     transition: box-shadow .15s;
+}
+#exit{
+    text-align: center;
+    font-family: "Sofia", sans-serif;
+    max-width: 100%;
+    background-color: #ff5757;
+    border-radius: 10px;
+    float: right;
+    color: aliceblue;
 }
 form {
     padding: 15px 25px;
