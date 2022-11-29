@@ -47,9 +47,10 @@ io.on("connection", function (socket) {
     });
     //sending alert message to the existing users
     socket.on("NewUserMessage", function(data){
-      socket.to(client.room).emit("NewUserMessage", data);
       socket.join(client.room);
+      socket.to(client.room).emit('NewUserMessage', data);
     });
+    //socket.to(client.room).emit('NewUserMessage');
   });
   
 

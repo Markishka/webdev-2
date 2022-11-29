@@ -23,12 +23,12 @@ const yourName = username
 let id;
 const newUserConnected = function (data) {
     
-
+  
     //give the user a random unique id
     id = Math.floor(Math.random() * 1000000);
     userName = yourName;
     //console.log(typeof(userName));   
-    
+    socket.emit("NewUserMessage", userName);
     //emit an event with the user id
     socket.emit("new user", userName);
     socket.emit("ExistUser", userName);
