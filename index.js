@@ -21,6 +21,7 @@ const io = socket(server);
 //we use a set to store users, sets objects are for unique values of any type
 const activeUsers = new Set();
 
+
 io.on("connection", function (socket) {
   socket.on('join', ({username, room}) => {
     const client = clientJoin(socket.id, username, room);
@@ -47,10 +48,9 @@ io.on("connection", function (socket) {
     });
     //sending alert message to the existing users
     socket.on("NewUserMessage", function(data){
-      socket.join(client.room);
       socket.to(client.room).emit('NewUserMessage', data);
+      socket.join(client.room);
     });
-    //socket.to(client.room).emit('NewUserMessage');
   });
   
 

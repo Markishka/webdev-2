@@ -139,7 +139,7 @@ messageForm.addEventListener("submit", (e) => {
 
 socket.on("chat message", function (data) {
   addNewMessage({ user: data.nick, message: data.message });
-  scrollmess.scrollTop = scrollmess.scrollHeight;
+messageBox.scrollIntoView(false);
 });
 //sending alert message to the existing users
 socket.on("NewUserMessage", function(data){
