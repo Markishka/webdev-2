@@ -1,4 +1,4 @@
-  *{
+* {
     margin: 0;
     padding: 0;
     }
@@ -88,7 +88,6 @@ footer{
 }
 #exit{
     text-align: center;
-    font-family: "Sofia", sans-serif;
     max-width: 100%;
     background-color: #ff5757;
     border-radius: 10px;
@@ -119,7 +118,6 @@ form {
     }
 .centre-txt, .welc-txt, .welc-txt1{
   color: aliceblue;
-    font-family: "Sofia", sans-serif;
     text-align: center;
     margin: 0;
 }
@@ -144,6 +142,7 @@ form {
     display: inline-block;
     width:120px;
     height: 40px;
+    text-align: center;
   }
   .inbox__messages, #typesOrnot{
     background-color: #5b1096 !important;
@@ -219,7 +218,6 @@ form {
   border-radius: 60px;
 }
 @keyframes change {
-    animation: ease;
     from {background-color: white;}
     to {background-color: lightblue;}
   }

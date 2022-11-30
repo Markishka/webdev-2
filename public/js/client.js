@@ -14,7 +14,6 @@ const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 let typesOrnot = document.getElementById("typesOrnot")
 let message1 = document.getElementById('message1');
-const scrollmess = document.querySelector('.messages__history');
 
 const scrollmsg = document.getElementById('chatbox1');
 

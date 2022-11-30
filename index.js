@@ -21,7 +21,7 @@ const io = socket(server);
 //we use a set to store users, sets objects are for unique values of any type
 const activeUsers = new Set();
 
-
+//when user connected, shows message and starts working
 io.on("connection", function (socket) {
   socket.on('join', ({username, room}) => {
     const client = clientJoin(socket.id, username, room);
@@ -33,13 +33,13 @@ io.on("connection", function (socket) {
     activeUsers.add(data);
     //... is the the spread operator, adds to the set while retaining what was in there already
     io.emit("new user", [...activeUsers]);
-  });
+  });//when user sends message, the message will appear
       socket.on("chat message", function (data) {
       io.to(client.room).emit("chat message", data);
-  });
+  });//when user is typing , it shows up that the user is typing
     socket.on("typing", (name) => {
       socket.broadcast.to(client.room).emit("typing", name);
-    });
+    });//when user disconnects, the message is shown that the person has disconnected
     socket.on("disconnect", function () {
       activeUsers.delete(socket.userId);
       io.to(client.room).emit('message', `A ${username} left the chat`);

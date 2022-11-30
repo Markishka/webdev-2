@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #111;
+  }
+  .nav-link, .navbar-brand{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+}
+
+  
+  .gen-text{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+  }
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+  #cont{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-grid{
+    flex: 15%;
+    max-width: 50%;
+    padding: 0 5px;
+  }
+  .col-grid img{
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    cursor: pointer;
+  }
+  .col-div{
+    margin: auto;
+    border: 5px solid aliceblue;
+    animation-name: change;
+    animation-duration: 2s;
+    animation: change 3s infinite;
+    max-width: 100%;
+  }
+  @keyframes change {
+    from {border-color: white;}
+    to {border-color: #5868b8;}
+  }
+  .edit-p{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    padding: 5px;
+  }
+  .navbar-toggler{
+    background-color: aliceblue;
+  }
+  img{
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border: 3px solid aliceblue;
+    animation-name: change;
+    animation-duration: 2s;
+    animation: change 3s infinite;
+  }
+  img:hover{
+    opacity: 0.3;
+  }
+  .text-det3{
+    color: aliceblue;
+    font-family: "Sofia", sans-serif;
+    text-align: center;
+    margin: 0;
+}
+ #marg-1{
+    margin-top: 7px;
+ }
+  @media screen and (max-width: 800px) {
+    .col-grid{
+        flex: 100%;
+        max-width: 100%;
+    }
+  }
